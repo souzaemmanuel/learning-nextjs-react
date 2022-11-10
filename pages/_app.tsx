@@ -1,6 +1,5 @@
 import "../styles.scss";
 import type { AppProps } from "next/app";
-import { PageFooter } from "../components/layout/PageFooter";
 import { SideNav } from "../components/layout/PageSideNav";
 import Head from "next/head";
 

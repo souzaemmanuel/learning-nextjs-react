@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const pages = [
   {
@@ -31,6 +31,8 @@ const pages = [
 const settings = ["Profile", "Logout"];
 
 export function SideNav() {
+  const router = useRouter();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -131,9 +133,8 @@ export function SideNav() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                href={page.route}
                 key={page.name}
-                onClick={handleCloseNavMenu}
+                onClick={() => router.push(page.route)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page.name}
